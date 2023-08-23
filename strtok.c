@@ -3,7 +3,8 @@
 /**
  * _strtok - A function to split strings
  * @buffer: token to split
- * Return - An array of tokenized strings
+ *
+ * Return: An array of tokenized strings
  */
 
 char **_strtok(char *buffer)
@@ -80,6 +81,10 @@ void print_token(char **token)
 	}
 }
 
+/**
+ * malloc_error - A function to print malloc error
+ *
+ */
 void malloc_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");

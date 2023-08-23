@@ -9,6 +9,7 @@
 
 int main(int ac, char **av)
 {
+	head = NULL;
 	FILE *file = NULL;
 	char *buffer = NULL;
 	int line = 1;
