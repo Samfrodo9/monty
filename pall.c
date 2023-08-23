@@ -8,29 +8,24 @@
 
 int pall(char **strings)
 {
+	(void)strings;
+
+	stack_t *transverse;
+
 	if (!head)
 		return (0);
 
-	stack_t transverse = NULL;
-
-	transverse = (stack_t *)malloc(sizeof(stack_t));
-
-	if (!transverse)
-	{
-		free_tokens(strings);
-		malloc_error();
-	}
-
 	transverse = head;
 
-	while (transverse->prev != NULL)
-		transverse = transverse->prev;
+	while (transverse->next != NULL)
+		transverse = transverse->next;
 
-	while (transverse != NULL)
+	while (transverse !=  NULL)
 	{
 		printf("%d\n", transverse->n);
-		transverse = transverse->next;
+		transverse = transverse->prev;
 	}
+
 
 	return (0);
 }

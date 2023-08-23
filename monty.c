@@ -6,10 +6,12 @@
  * @av: argument vector
  * Return: 0 on success
  */
+stack_t *head = NULL;
+//head->prev = NULL;
+//head->next = NULL;
 
 int main(int ac, char **av)
 {
-	head = NULL;
 	FILE *file = NULL;
 	char *buffer = NULL;
 	int line = 1;
@@ -26,7 +28,15 @@ int main(int ac, char **av)
 		{
 			printf("%d: %s", line, buffer);
 			strings = _strtok(buffer);
-			print_token(strings);
+//			print_token(strings);
+			if (strcmp("pall", strings[0]) == 0)
+				pall(strings);
+			if (strcmp("push", strings[0]) == 0)
+					push(strings);
+			if (strcmp("pint", strings[0]) == 0)
+					pint(strings, line);
+			if (strcmp("pop", strings[0]) == 0)
+				pop(strings, line);
 			/* Remember to Call the functions here and pass strings */
 			line++;
 		}

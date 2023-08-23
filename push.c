@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * push - adds a new node at the end of the stack
  * @strings: a buffer where commands are stored
@@ -7,7 +8,7 @@
 
 int push(char **strings)
 {
-	stack_t *copy;
+	stack_t *current;
 	stack_t *newlist;
 
 	newlist = malloc(sizeof(stack_t));
@@ -17,26 +18,23 @@ int push(char **strings)
 		malloc_error();
 	}
 
-	newlist->n = strings[1];
+	newlist->n = atoi(strings[1]);
 	newlist->next = NULL;
 
-	copy = head;
+	if (head == NULL)
+    {
+        newlist->prev = NULL;
+        head = newlist;
+    }
+    else
+    {
+        current = head;
+        while (current->next != NULL)
+            current = current->next;
 
-	if (copy != NULL)
-	{
-		while (copy->next != NULL)
-			copy = copy->next;
-		copy->next = newlist;
-	}
-	else
-	{
-		head = newlist;
-		newlist->prev = NULL;
-
-		return (0);
-	}
-
-	newlist->prev = copy;
+        current->next = newlist;
+        newlist->prev = current;
+    }
 
 	return (0);
 }
