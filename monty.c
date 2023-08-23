@@ -37,6 +37,10 @@ int main(int ac, char **av)
 					pint(strings, line);
 			if (strcmp("pop", strings[0]) == 0)
 				pop(strings, line);
+			if (strcmp("swap", strings[0]) == 0)
+				swap(strings, line);
+			if (strcmp("add", strings[0]) == 0)
+				add(strings, line);
 			/* Remember to Call the functions here and pass strings */
 			line++;
 		}

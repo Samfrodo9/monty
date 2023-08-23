@@ -18,6 +18,9 @@ int pall(char **strings);
 int push(char **strings);
 int pint(char **strings, int line);
 int pop(char **strings, int line);
+int swap(char **strings, int line);
+int add(char **strings, int line);
+void nop(void);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

@@ -1,9 +1,19 @@
+nop
 push 1
+push 2
+push 3
+pall
+add
+nop
+pall
+push 4
 push 5
-pop
 pall
-pint
-pop
+add
 pall
+push 6
+push 7
 pall
+swap
 pall
+nop
