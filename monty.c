@@ -11,10 +11,10 @@ int main(int ac, char **av)
 {
 	FILE *file = NULL;
 	char *buffer = NULL;
-	char get, check;
 	int line = 1;
 	ssize_t count;
 	size_t size = 0;
+	char **strings = NULL;
 
 	if (ac == 2)
 	{
@@ -24,6 +24,9 @@ int main(int ac, char **av)
 		while ((count = getline(&buffer, &size, file)) != -1)
 		{
 			printf("%d: %s", line, buffer);
+			strings = _strtok(buffer);
+			print_token(strings);
+			/* Remember to Call the functions here and pass strings */
 			line++;
 		}
 	}
@@ -35,7 +38,7 @@ int main(int ac, char **av)
 }
 
 /**
- * usage - A function to print
+ * usage - A function to print error message
  */
 
 void usage(void)
@@ -53,3 +56,4 @@ void error(char *av)
 	 fprintf(stderr, "Error: Can't open file %s\n", av);
 	 exit(EXIT_FAILURE);
 }
+
