@@ -41,7 +41,7 @@ int main(int ac, char **av)
 			else if (strcmp("pint", strings[0]) == 0)
 				pint(line, file, buffer, strings);
 			else if (strcmp("pop", strings[0]) == 0)
-				pop(line);
+				pop(line, file, buffer, strings);
 			else if (strcmp("swap", strings[0]) == 0)
 				swap(line, file, buffer, strings);
 			else if (strcmp("add", strings[0]) == 0)

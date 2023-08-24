@@ -24,7 +24,7 @@ int pop(int line, FILE *file, char *buffer, char **strings);
 int swap(int line, FILE *file, char *buffer, char **strings);
 int add(int line, FILE *file, char *buffer, char **strings);
 void nop(void);
-
+void cleanup(FILE *file, char *buffer, char **strings);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
