@@ -21,7 +21,7 @@ int pall(void)
 	while (transverse !=  NULL)
 	{
 		printf("%d\n", transverse->n);
-		transverse = transverse->next;
+		transverse = transverse->prev;
 	}
 
 
