@@ -54,6 +54,8 @@ int main(int ac, char **av)
 				exit(EXIT_FAILURE);
 			}
 			line++;
+			free_tokens(strings);
+			free(buffer);
 		}
 	}
 	else
@@ -67,7 +69,8 @@ int main(int ac, char **av)
 	{
 		free(buffer);
 	}
-	free_tokens(strings);
+	if (strings)
+		free_tokens(strings);
 	return (0);
 }
 
