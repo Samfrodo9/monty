@@ -11,7 +11,6 @@ int main(int ac, char **av)
 	size_t size = 0;
 	char **strings = NULL;
 
-
 	if (ac == 2)
 	{
 		file = fopen(av[1], "r");
@@ -31,35 +30,19 @@ int main(int ac, char **av)
 				line++;
 				continue;
 			}
-
 			strings = _strtok(buffer);
-
-			if (strcmp("pall", strings[0]) == 0)
-				pall();
-			else if (strcmp("push", strings[0]) == 0)
-				push(line, file, buffer, strings);
-			else if (strcmp("pint", strings[0]) == 0)
-				pint(line, file, buffer, strings);
-			else if (strcmp("pop", strings[0]) == 0)
-				pop(line, file, buffer, strings);
-			else if (strcmp("swap", strings[0]) == 0)
-				swap(line, file, buffer, strings);
-			else if (strcmp("add", strings[0]) == 0)
-				add(line, file, buffer, strings);
-			else if (strcmp("nop", strings[0]) == 0)
-				nop();
-			else
+			if (execute(strings) == 1)
 			{
-				printf("L%d: unknown instruction %s\n", line, strings[0]);
-				exit(EXIT_FAILURE);
+				line++;
+				continue;
 			}
+			execute_instructions(line, file, buffer, strings);
 			line++;
 		}
 	}
 	else
 		usage();
 	cleanup(file, buffer, strings);
-	
 	return (0);
 }
 
@@ -81,24 +64,4 @@ void error(char *av)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", av);
 	exit(EXIT_FAILURE);
-}
-
-/**
- * leakage - A function to perform cleanups
- */
-
-void leakage(char *buffer, stack_t **head)
-{
-	stack_t *current = *head;
-
-	if (buffer)
-		free(buffer);
-
-	while (current != NULL)
-	{
-		stack_t *temp = current;
-		current = current->next;
-		free(temp);
-	}
-	*head = NULL;
 }

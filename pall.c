@@ -6,12 +6,12 @@
  * Return: 0 on success
  */
 
-int pall(void)
+void pall(void)
 {
 	stack_t *transverse;
 
 	if (!head)
-		return (0);
+		return;
 
 	transverse = head;
 
@@ -24,6 +24,4 @@ int pall(void)
 		transverse = transverse->prev;
 	}
 
-
-	return (0);
 }
