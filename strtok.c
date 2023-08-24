@@ -9,7 +9,7 @@
 
 char **_strtok(char *buffer)
 {
-	char *delim = " \n";
+	char *delim = " \n\t";
 	char **strings = NULL;
 	char *temp, *copy = NULL;
 	int i = 0, j, num_tokens = 0;
