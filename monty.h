@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 void error(char *av);
 void usage(void);
@@ -17,7 +18,7 @@ char **_strtok(char *buffer);
 
 
 int pall(void);
-int push(char **strings);
+int push(char **strings, int line);
 int pint(char **strings, int line);
 int pop(int line);
 int swap(char **strings, int line);

@@ -1,9 +1,8 @@
 nop
 push 1
-push 2
+push "samfrodo"
 push 3
 pall
-hello
 add
 nop
 pall

@@ -2,14 +2,31 @@
 
 /**
  * push - adds a new node at the end of the stack
+ * @line: line number of commands in the file
  * @strings: a buffer where commands are stored
  * Return: 0 on success
  */
 
-int push(char **strings)
+int push(char **strings, int line)
 {
 	stack_t *current;
 	stack_t *newlist;
+	char *c;
+
+	if (strings[1] == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line);
+		exit(EXIT_FAILURE);
+	}
+
+	for (c = strings[1]; *c; c++)
+	{
+		if (!isdigit(*c) && *c != '-')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	newlist = malloc(sizeof(stack_t));
 	if (newlist == NULL)

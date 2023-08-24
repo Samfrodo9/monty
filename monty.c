@@ -30,7 +30,7 @@ int main(int ac, char **av)
 			if (strcmp("pall", strings[0]) == 0)
 				pall();
 			else if (strcmp("push", strings[0]) == 0)
-				push(strings);
+				push(strings, line);
 			else if (strcmp("pint", strings[0]) == 0)
 				pint(strings, line);
 			else if (strcmp("pop", strings[0]) == 0)
