@@ -24,7 +24,7 @@ int main(int ac, char **av)
 			error(av[1]);
 		while ((count = getline(&buffer, &size, file)) != -1)
 		{
-			printf("%d: %s", line, buffer);
+/*			printf("%d: %s", line, buffer); */
 			strings = _strtok(buffer);
 /*			print_token(strings); */
 			if (strcmp("pall", strings[0]) == 0)
