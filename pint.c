@@ -10,31 +10,30 @@
 
 int pint(char **strings, int line)
 {
-        if (!head)
-		{
-			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
-			exit(EXIT_FAILURE);
-		}
+	stack_t *transverse;
 
-        stack_t *transverse;
+	if (!head)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		exit(EXIT_FAILURE);
+	}
 
-        transverse = (stack_t *)malloc(sizeof(stack_t));
+	transverse = (stack_t *)malloc(sizeof(stack_t));
 
-        if (!transverse)
-        {
-                free_tokens(strings);
-                malloc_error();
-        }
+	if (!transverse)
+	{
+		free_tokens(strings);
+		malloc_error();
+	}
 
-        transverse = head;
+	transverse = head;
 
-        while (transverse->next != NULL)
-                transverse = transverse->next;
+	while (transverse->next != NULL)
+		transverse = transverse->next;
+	printf("%d\n", transverse->n);
 
-		printf("%d\n", transverse->n);
+	free(transverse);
 
-		free(transverse);
-
-        return (0);
+	return (0);
 }
 

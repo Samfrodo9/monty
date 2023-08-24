@@ -11,6 +11,12 @@
 int swap(char **strings, int line)
 {
 	int store;
+
+	stack_t *last;
+	stack_t *previous;
+
+	(void)strings;
+
 	if (!head)
 	{
 		fprintf(stderr, "L%d: can't pop an stack empty\n", line);
@@ -25,15 +31,15 @@ int swap(char **strings, int line)
 		exit(EXIT_FAILURE);
 	}
 
-	stack_t *last = head;
-	stack_t *previous = NULL;
+	last = head;
+	previous = NULL;
 
 	while (last->next != NULL)
 	{
 		previous = last;
 		last = last->next;
 	}
-	
+
 	store = previous->n;
 
 	previous->n = last->n;

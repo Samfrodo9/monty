@@ -14,13 +14,17 @@ void malloc_error(void);
 void print_token(char **token);
 void free_tokens(char **tokens);
 char **_strtok(char *buffer);
-int pall(char **strings);
+
+
+int pall(void);
 int push(char **strings);
 int pint(char **strings, int line);
-int pop(char **strings, int line);
+int pop(int line);
 int swap(char **strings, int line);
 int add(char **strings, int line);
 void nop(void);
+
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

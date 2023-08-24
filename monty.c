@@ -7,8 +7,6 @@
  * Return: 0 on success
  */
 stack_t *head = NULL;
-//head->prev = NULL;
-//head->next = NULL;
 
 int main(int ac, char **av)
 {
@@ -28,19 +26,27 @@ int main(int ac, char **av)
 		{
 			printf("%d: %s", line, buffer);
 			strings = _strtok(buffer);
-//			print_token(strings);
+/*			print_token(strings); */
 			if (strcmp("pall", strings[0]) == 0)
-				pall(strings);
-			if (strcmp("push", strings[0]) == 0)
-					push(strings);
-			if (strcmp("pint", strings[0]) == 0)
-					pint(strings, line);
-			if (strcmp("pop", strings[0]) == 0)
-				pop(strings, line);
-			if (strcmp("swap", strings[0]) == 0)
+				pall();
+			else if (strcmp("push", strings[0]) == 0)
+				push(strings);
+			else if (strcmp("pint", strings[0]) == 0)
+				pint(strings, line);
+			else if (strcmp("pop", strings[0]) == 0)
+				pop(line);
+			else if (strcmp("swap", strings[0]) == 0)
 				swap(strings, line);
-			if (strcmp("add", strings[0]) == 0)
+			else if (strcmp("add", strings[0]) == 0)
 				add(strings, line);
+			else if (strcmp("nop", strings[0]) == 0)
+				nop();
+			else
+			{
+				printf("L<%d>: unknown instruction <%s>\n", line, strings[0]);
+				exit(EXIT_FAILURE);
+			}
+
 			/* Remember to Call the functions here and pass strings */
 			line++;
 		}

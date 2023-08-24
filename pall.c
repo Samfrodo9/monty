@@ -6,10 +6,8 @@
  * Return: 0 on success
  */
 
-int pall(char **strings)
+int pall(void)
 {
-	(void)strings;
-
 	stack_t *transverse;
 
 	if (!head)

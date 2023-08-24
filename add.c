@@ -10,7 +10,9 @@
 
 int add(char **strings, int line)
 {
-	int store;
+	stack_t *last;
+	stack_t *previous;
+
 	if ((!head) || (head->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't add stack, stack too short\n", line);
@@ -18,8 +20,8 @@ int add(char **strings, int line)
 		exit(EXIT_FAILURE);
 	}
 
-	stack_t *last = head;
-	stack_t *previous = NULL;
+	last = head;
+	previous = NULL;
 
 	while (last->next != NULL)
 	{

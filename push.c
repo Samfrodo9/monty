@@ -22,19 +22,19 @@ int push(char **strings)
 	newlist->next = NULL;
 
 	if (head == NULL)
-    {
-        newlist->prev = NULL;
-        head = newlist;
-    }
-    else
-    {
-        current = head;
-        while (current->next != NULL)
-            current = current->next;
+	{
+		newlist->prev = NULL;
+		head = newlist;
+	}
+	else
+	{
+		current = head;
+		while (current->next != NULL)
+			current = current->next;
 
-        current->next = newlist;
-        newlist->prev = current;
-    }
+		current->next = newlist;
+		newlist->prev = current;
+	}
 
 	return (0);
 }

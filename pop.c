@@ -2,22 +2,21 @@
 
 /**
  * pop - removes the last elements of a stack
- * @strings: array of strings
  * @line: line number
  *
  * Return: 0 on success
  */
 
-int pop(char **strings, int line)
+int pop(int line)
 {
+	stack_t *previous = NULL;
+	stack_t *last = head;
+
 	if (!head)
 	{
 		fprintf(stderr, "L%d: can't pop an stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
-
-	stack_t *last = head;
-	stack_t *previous = NULL;
 
 	while (last->next != NULL)
 	{
