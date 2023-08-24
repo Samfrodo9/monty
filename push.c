@@ -15,7 +15,7 @@ int push(char **strings, int line)
 
 	if (strings[1] == NULL)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line);
+		fprintf(stdout, "L<%d>: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -23,7 +23,7 @@ int push(char **strings, int line)
 	{
 		if (!isdigit(*c) && *c != '-')
 		{
-			fprintf(stderr, "L<%d>: usage: push integer\n", line);
+			fprintf(stderr, "L%d: usage: push integer\n", line);
 			exit(EXIT_FAILURE);
 		}
 	}
