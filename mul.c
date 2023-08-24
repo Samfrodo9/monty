@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * sub - subtracts the last two elements of a stack
+ * mul - multiplies the second top element by the top element
  * @strings: array of strings
  * @file: file to read from
  * @buffer: stream where tokens are stored
@@ -10,14 +10,14 @@
  * Return: 0 on success
  */
 
-int sub(int line, FILE *file, char *buffer, char **strings)
+int mul(int line, FILE *file, char *buffer, char **strings)
 {
 	stack_t *last;
 	stack_t *previous;
 
 	if ((!head) || (head->next == NULL))
 	{
-		fprintf(stderr, "L%d: can't sub, stack too  short\n", line);
+		fprintf(stderr, "L%d: can't mul, stack too  short\n", line);
 		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
@@ -31,7 +31,7 @@ int sub(int line, FILE *file, char *buffer, char **strings)
 		last = last->next;
 	}
 
-	previous->n = previous->n - last->n;
+	previous->n = previous->n * last->n;
 	previous->next = NULL;
 
 	free(last);

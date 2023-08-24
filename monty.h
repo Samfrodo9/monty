@@ -26,8 +26,11 @@ int add(int line, FILE *file, char *buffer, char **strings);
 void nop(void);
 void cleanup(FILE *file, char *buffer, char **strings);
 int sub(int line, FILE *file, char *buffer, char **strings);
+int div_op(int line, FILE *file, char *buffer, char **strings);
+int sub(int line, FILE *file, char *buffer, char **strings);
+int mod(int line, FILE *file, char *buffer, char **strings);
 int execute(char **strings);
-
+int mul(int line, FILE *file, char *buffer, char **strings);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

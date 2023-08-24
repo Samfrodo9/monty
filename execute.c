@@ -10,8 +10,6 @@
 
 void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 {
-	int i = 0;
-
 	instruction_t opcode_functions[] = {
 		{"push", push},
 		{"pint", pint},
@@ -19,10 +17,21 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", div_op},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
-	int found = 0;
+	int i, found = 0;
+	char *store;
+
+	store = strings[0];
+
+	if (store[0] == '#')
+		return;
+
+	found = 0;
 	for (i = 0; opcode_functions[i].opcode; i++)
 	{
 		if (strcmp(strings[0], opcode_functions[i].opcode) == 0)
@@ -44,13 +53,20 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 
 int execute(char **strings)
 {
-	int i = 0;
-	int found = 0;
 	code functions[] = {
 		{"pall", pall},
 		{"nop", nop},
 		{NULL, NULL}
 	};
+
+	int i, found;
+
+	char *store = strings[0];
+	if (store[0] == '#')
+		return (10);
+
+	i = 0;
+	found = 0;
 
 	for (i = 0; functions[i].op; i++)
 	{
