@@ -15,7 +15,7 @@ int push(char **strings, int line)
 
 	if (strings[1] == NULL)
 	{
-		fprintf(stdout, "L<%d>: usage: push integer\n", line);
+		fprintf(stdout, "L%d: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
 
