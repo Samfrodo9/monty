@@ -65,7 +65,8 @@ int main(int ac, char **av)
 	{
 		fclose(file);
 	}
-	if (buffer)
+/**
+ * if (buffer)
 	{
 		free(buffer);
 	}
@@ -73,7 +74,7 @@ int main(int ac, char **av)
 		free_tokens(strings);
 	return (0);
 }
-
+*/
 /**
  * usage - A function to print error message
  */
