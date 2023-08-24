@@ -8,15 +8,16 @@
  * Return: 0 on success
  */
 
-int add(char **strings, int line)
+int add(char **strings, int line, char *buffer)
 {
 	stack_t *last;
 	stack_t *previous;
 
 	if ((!head) || (head->next == NULL))
 	{
-		fprintf(stderr, "L%d: can't add stack, stack too short\n", line);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
 		free_tokens(strings);
+		leakage(buffer, &head);
 		exit(EXIT_FAILURE);
 	}
 

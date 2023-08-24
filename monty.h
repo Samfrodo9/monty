@@ -18,13 +18,12 @@ char **_strtok(char *buffer);
 
 
 int pall(void);
-int push(char **strings, int line);
-int pint(char **strings, int line);
-int pop(int line);
-int swap(char **strings, int line);
-int add(char **strings, int line);
+int push(char **strings, int line, char *buffer);
+int pint(char **strings, int line, char *buffer);
+int pop(char **strings, int line, char *buffer);
+int swap(char **strings, int line, char *buffer);
+int add(char **strings, int line, char *buffer);
 void nop(void);
-
 
 
 /**
@@ -58,5 +57,6 @@ typedef struct instruction_s
 } instruction_t;
 
 extern stack_t *head;
+void leakage(char *buffer, stack_t **head);
 
 #endif

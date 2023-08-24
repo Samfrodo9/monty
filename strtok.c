@@ -72,12 +72,15 @@ void free_tokens(char **tokens)
 
 void print_token(char **token)
 {
-	int i = 0;
-
-	while (token[i] != NULL)
+	if (token)
 	{
-		printf("token[%d] = %s\n", i, token[i]);
-		i++;
+		int i = 0;
+
+		while (token[i] != NULL)
+		{
+			printf("token[%d] = %s\n", i, token[i]);
+			i++;
+		}
 	}
 }
 

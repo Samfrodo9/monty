@@ -7,7 +7,7 @@
  * Return: 0 on success
  */
 
-int pop(int line)
+int pop(char **strings, int line, char *buffer)
 {
 	stack_t *previous = NULL;
 	stack_t *last = head;
@@ -15,6 +15,8 @@ int pop(int line)
 	if (!head)
 	{
 		fprintf(stderr, "L%d: can't pop an stack empty\n", line);
+		leakage(buffer, &head);
+		free_tokens(strings);
 		exit(EXIT_FAILURE);
 	}
 

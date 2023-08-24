@@ -8,7 +8,7 @@
  * Return: 0 on success
  */
 
-int swap(char **strings, int line)
+int swap(char **strings, int line, char *buffer)
 {
 	int store;
 
@@ -17,17 +17,11 @@ int swap(char **strings, int line)
 
 	(void)strings;
 
-	if (!head)
-	{
-		fprintf(stderr, "L%d: can't pop an stack empty\n", line);
-		free_tokens(strings);
-		exit(EXIT_FAILURE);
-	}
-
-	if (head->next == NULL)
+	if ((!head) | (head->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 		free_tokens(strings);
+		leakage(buffer, &head);
 		exit(EXIT_FAILURE);
 	}
 
