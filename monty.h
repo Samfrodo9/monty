@@ -18,11 +18,11 @@ char **_strtok(char *buffer);
 
 
 int pall(void);
-int push(char **strings, int line, char *buffer);
-int pint(char **strings, int line, char *buffer);
-int pop(char **strings, int line, char *buffer);
-int swap(char **strings, int line, char *buffer);
-int add(char **strings, int line, char *buffer);
+int push(int line, FILE *file, char *buffer, char **strings);
+int pint(int line, FILE *file, char *buffer, char **strings);
+int pop(int line, FILE *file, char *buffer, char **strings);
+int swap(int line, FILE *file, char *buffer, char **strings);
+int add(int line, FILE *file, char *buffer, char **strings);
 void nop(void);
 
 

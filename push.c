@@ -7,7 +7,7 @@
  * Return: 0 on success
  */
 
-int push(char **strings, int line, char *buffer)
+int push(int line, FILE *file, char *buffer, char **strings)
 {
 	stack_t *current;
 	stack_t *newlist;
@@ -16,7 +16,7 @@ int push(char **strings, int line, char *buffer)
 	if (strings[1] == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		leakage(buffer, &head);
+		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +25,7 @@ int push(char **strings, int line, char *buffer)
 		if (!isdigit(*c) && *c != '-')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line);
-			leakage(buffer, &head);
+			cleanup(file, buffer, strings);
 			exit(EXIT_FAILURE);
 		}
 	}

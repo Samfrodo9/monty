@@ -8,7 +8,7 @@
  * Return: 0 on success
  */
 
-int add(char **strings, int line, char *buffer)
+int add(int line, FILE *file, char *buffer, char **strings)
 {
 	stack_t *last;
 	stack_t *previous;
@@ -16,8 +16,7 @@ int add(char **strings, int line, char *buffer)
 	if ((!head) || (head->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line);
-		free_tokens(strings);
-		leakage(buffer, &head);
+		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
 

@@ -37,15 +37,15 @@ int main(int ac, char **av)
 			if (strcmp("pall", strings[0]) == 0)
 				pall();
 			else if (strcmp("push", strings[0]) == 0)
-				push(strings, line, buffer, file);
+				push(line, file, buffer, strings);
 			else if (strcmp("pint", strings[0]) == 0)
-				pint(strings, line, buffer, file);
+				pint(line, file, buffer, strings);
 			else if (strcmp("pop", strings[0]) == 0)
 				pop(line);
 			else if (strcmp("swap", strings[0]) == 0)
-				swap(strings, line, buffer, file);
+				swap(line, file, buffer, strings);
 			else if (strcmp("add", strings[0]) == 0)
-				add(strings, line, buffer, file);
+				add(line, file, buffer, strings);
 			else if (strcmp("nop", strings[0]) == 0)
 				nop();
 			else
@@ -58,11 +58,7 @@ int main(int ac, char **av)
 	}
 	else
 		usage();
-
-	if (file)
-		fclose(file);
-	free_tokens(strings);
-	leakage(buffer, &head);
+	cleanup(file, buffer, strings);
 	
 	return (0);
 }
@@ -86,6 +82,10 @@ void error(char *av)
 	fprintf(stderr, "Error: Can't open file %s\n", av);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * leakage - A function to perform cleanups
+ */
 
 void leakage(char *buffer, stack_t **head)
 {

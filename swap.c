@@ -8,7 +8,7 @@
  * Return: 0 on success
  */
 
-int swap(char **strings, int line, char *buffer)
+int swap(int line, FILE *file, char *buffer, char **strings)
 {
 	int store;
 
@@ -20,8 +20,7 @@ int swap(char **strings, int line, char *buffer)
 	if ((!head) | (head->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
-		free_tokens(strings);
-		leakage(buffer, &head);
+		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
 

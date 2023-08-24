@@ -8,7 +8,7 @@
  * Return: 0 on success
  */
 
-int pint(char **strings, int line)
+int pint(int line, FILE *file, char *buffer, char **strings)
 {
 	stack_t *transverse;
 
@@ -16,7 +16,7 @@ int pint(char **strings, int line)
 	if (!head)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
-		free_tokens(strings);
+		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
 

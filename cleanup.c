@@ -25,4 +25,12 @@ void cleanup(FILE *file, char *buffer, char **strings)
 	{
 		free_tokens(strings);
 	}
+
+	/* Free the stack node of head */
+	 while (head)
+    {
+	    stack_t *temp = head;
+	    head = head->next;
+	    free(temp);
+	}
 }
