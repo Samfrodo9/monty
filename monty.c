@@ -43,7 +43,7 @@ int main(int ac, char **av)
 				nop();
 			else
 			{
-				printf("L<%d>: unknown instruction <%s>\n", line, strings[0]);
+				printf("L%d: unknown instruction %s\n", line, strings[0]);
 				exit(EXIT_FAILURE);
 			}
 
