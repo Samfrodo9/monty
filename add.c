@@ -2,6 +2,8 @@
 
 /**
  * add - add the last two elements of a stack
+ * @file: file to read from
+ * @buffer: commans=nds to execute
  * @strings: array of strings
  * @line: line number
  *

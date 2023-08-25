@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * execute_instruction - Execute the appropriate opcode function
+ * execute_instructions - Execute the appropriate opcode function
  * @line: Current line number in the input file
  * @file: File pointer to the input file
  * @buffer: Line buffer from getline
@@ -50,6 +50,14 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 	}
 
 }
+
+
+/**
+ * execute - A function to execute commands
+ * @strings: Array of strings to execute
+ *
+ * Return: Always 0
+ */
 
 int execute(char **strings)
 {

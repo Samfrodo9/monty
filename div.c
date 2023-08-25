@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - divides the second top element by the top element
+ * div_op - divides the second top element by the top element
  * @strings: array of strings
  * @file: file to read from
  * @buffer: stream where tokens are stored

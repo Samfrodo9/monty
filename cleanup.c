@@ -27,10 +27,11 @@ void cleanup(FILE *file, char *buffer, char **strings)
 	}
 
 	/* Free the stack node of head */
-	 while (head)
-    {
-	    stack_t *temp = head;
-	    head = head->next;
-	    free(temp);
+	while (head)
+	{
+		stack_t *temp = head;
+		head = head->next;
+
+		free(temp);
 	}
 }

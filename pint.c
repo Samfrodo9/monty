@@ -3,6 +3,8 @@
 /**
  * pint - prints the last elements of a stack
  * @strings: array of strings
+ * @file: file to read from
+ * @buffer: commands to execute
  * @line: line number
  *
  * Return: 0 on success

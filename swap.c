@@ -3,6 +3,8 @@
 /**
  * swap - swaps the last two elements of a stack
  * @strings: array of strings
+ * @file: stream to read from
+ * @buffer: where tokens are stored
  * @line: line number
  *
  * Return: 0 on success

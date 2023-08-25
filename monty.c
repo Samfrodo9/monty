@@ -17,7 +17,7 @@ int main(int ac, char **av)
 		if (file == NULL)
 			error(av[1]);
 		while ((count = getline(&buffer, &size, file)) != -1)
-        {
+		{
 			/* Trim newline character at the end of the line */
 			if (count > 0 && buffer[count - 1] == '\n')
 			{

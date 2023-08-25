@@ -3,6 +3,9 @@
 /**
  * pop - removes the last elements of a stack
  * @line: line number
+ * @file: file to read from
+ * @buffer: buffer to execute
+ * @strings: array of commands
  *
  * Return: 0 on success
  */

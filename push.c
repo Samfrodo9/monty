@@ -4,6 +4,8 @@
  * push - adds a new node at the end of the stack
  * @line: line number of commands in the file
  * @strings: a buffer where commands are stored
+ * @file: file to read from
+ * @buffer: commands
  * Return: 0 on success
  */
 
