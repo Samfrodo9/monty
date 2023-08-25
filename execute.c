@@ -44,7 +44,7 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 
 	if (!found)
 	{
-		printf("L%d: unknown instruction %s\n", line, strings[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line, strings[0]);
 		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}
