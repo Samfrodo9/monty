@@ -47,10 +47,10 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, strings[0]);
 		free_tokens(strings);
 		free(buffer);
+		fclose(file);
 		buffer = NULL;
 		exit(EXIT_FAILURE);
 	}
-
 }
 
 
@@ -84,6 +84,7 @@ int execute(char **strings)
 		{
 			found = 1;
 			functions[i].func();
+/*			free_tokens(strings); */
 			break;
 		}
 	}

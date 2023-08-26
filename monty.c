@@ -35,7 +35,7 @@ int main(int ac, char **av)
 			strings = _strtok(line, file, buffer);
 			if (execute(strings) == 1)
 			{
-				free(buffer);
+				free(buffer); 
 				buffer = NULL;
 				line++;
 				continue;
