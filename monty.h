@@ -82,5 +82,6 @@ typedef struct code
 } code;
 
 extern stack_t *head;
+void free_head(stack_t *head);
 void execute_instructions(int line, FILE *file, char *buffer, char **strings);
 #endif

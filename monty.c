@@ -45,6 +45,7 @@ int main(int ac, char **av)
 			free(buffer);
 			buffer = NULL;
 		}
+
 		cleanup(file, buffer, strings);
 		return (0);
 	}
