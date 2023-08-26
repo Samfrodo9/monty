@@ -14,7 +14,7 @@ void usage(void);
 void malloc_error(void);
 void print_token(char **token);
 void free_tokens(char **tokens);
-char **_strtok(char *buffer);
+char **_strtok(int line, FILE *file, char *buffer);
 
 
 void pall(void);

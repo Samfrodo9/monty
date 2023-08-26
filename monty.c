@@ -27,22 +27,30 @@ int main(int ac, char **av)
 			if (strcmp(buffer, "") == 0)
 			{
 				/* Blank line, skip to next iteration */
+				free(buffer);
+				buffer = NULL;
 				line++;
 				continue;
 			}
-			strings = _strtok(buffer);
+			strings = _strtok(line, file, buffer);
 			if (execute(strings) == 1)
 			{
+				free(buffer);
+				buffer = NULL;
 				line++;
 				continue;
 			}
 			execute_instructions(line, file, buffer, strings);
 			line++;
+			free(buffer);
+			buffer = NULL;
 		}
+		cleanup(file, buffer, strings);
+		return (0);
 	}
+
 	else
 		usage();
-	cleanup(file, buffer, strings);
 	return (0);
 }
 

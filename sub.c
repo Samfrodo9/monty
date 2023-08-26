@@ -17,7 +17,7 @@ int sub(int line, FILE *file, char *buffer, char **strings)
 
 	if ((!head) || (head->next == NULL))
 	{
-		fprintf(stderr, "L%d: can't sub, stack too  short\n", line);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
 		cleanup(file, buffer, strings);
 		exit(EXIT_FAILURE);
 	}

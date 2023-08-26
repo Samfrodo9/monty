@@ -35,6 +35,7 @@ int push(int line, FILE *file, char *buffer, char **strings)
 	newlist = malloc(sizeof(stack_t));
 	if (newlist == NULL)
 	{
+		cleanup(file, buffer, strings);
 		free_tokens(strings);
 		malloc_error();
 	}
@@ -56,6 +57,8 @@ int push(int line, FILE *file, char *buffer, char **strings)
 		current->next = newlist;
 		newlist->prev = current;
 	}
+	free_tokens(strings);
+	strings = NULL;
 
 	return (0);
 }

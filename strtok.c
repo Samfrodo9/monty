@@ -6,13 +6,13 @@
  *
  * Return: An array of tokenized strings
  */
-
+/*
 char **_strtok(char *buffer)
 {
 	char *delim = " \n\t";
 	char **strings = NULL;
-	char *temp, *copy = NULL;
-	int i = 0, j, num_tokens = 0;
+	char *temp = NULL, *copy = NULL;
+	int i = 0, j = 0, num_tokens = 0;
 
 	if (!buffer)
 		return (NULL);
@@ -29,7 +29,7 @@ char **_strtok(char *buffer)
 	strings = malloc(sizeof(char *) * (num_tokens + 1));
 	if (!strings)
 		malloc_error();
-	temp = strtok(buffer, delim); /* Tokenize the input string */
+	temp = strtok(buffer, delim);
 	while (temp != NULL)
 	{
 		strings[i] = strdup(temp);
@@ -46,6 +46,7 @@ char **_strtok(char *buffer)
 	strings[i] = NULL;
 	return (strings);
 }
+*/
 
 /**
  * free_tokens - Function to free the memory allocated by _strtok.
@@ -58,11 +59,12 @@ void free_tokens(char **tokens)
 
 	if (!tokens)
 		return;
-
-	for (i = 0; tokens[i]; i++)
-		free(tokens[i]);
-
-	free(tokens);
+	else
+	{
+		for (i = 0; tokens[i]; i++)
+			free(tokens[i]);
+		free(tokens);
+	}
 }
 
 /**
