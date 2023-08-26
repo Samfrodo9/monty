@@ -24,7 +24,7 @@ int pchar(int line, FILE *file, char *buffer, char **strings)
 	while (top->next != NULL)
 		top = top->next;
 
-	if (top->n < 0 || top->n > 127)
+	if ((top->n < 0) || (top->n > 127))
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		cleanup(file, buffer, strings);

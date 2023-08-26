@@ -23,6 +23,7 @@ int pint(int line, FILE *file, char *buffer, char **strings);
 int pop(int line, FILE *file, char *buffer, char **strings);
 int swap(int line, FILE *file, char *buffer, char **strings);
 int add(int line, FILE *file, char *buffer, char **strings);
+int pchar(int line, FILE *file, char *buffer, char **strings);
 void nop(void);
 void cleanup(FILE *file, char *buffer, char **strings);
 int sub(int line, FILE *file, char *buffer, char **strings);

@@ -20,6 +20,7 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 		{"div", div_op},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
