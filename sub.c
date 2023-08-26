@@ -35,6 +35,7 @@ int sub(int line, FILE *file, char *buffer, char **strings)
 	previous->next = NULL;
 
 	free(last);
+	free_tokens(strings);
 
 	return (0);
 }

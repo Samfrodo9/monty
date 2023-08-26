@@ -28,6 +28,7 @@ int pint(int line, FILE *file, char *buffer, char **strings)
 		transverse = transverse->next;
 	printf("%d\n", transverse->n);
 
+	free_tokens(strings);
 	return (0);
 }
 
