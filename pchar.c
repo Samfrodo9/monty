@@ -33,6 +33,6 @@ int pchar(int line, FILE *file, char *buffer, char **strings)
 
 	printf("%c\n", top->n);
 	free_tokens(strings);
-    
+
 	return (0);
 }

@@ -39,7 +39,7 @@ int swap(int line, FILE *file, char *buffer, char **strings)
 
 	previous->n = last->n;
 	last->n = store;
-	
+
 	free_tokens(strings);
 	return (0);
 }

@@ -23,15 +23,12 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 		{"pchar", pchar},
 		{NULL, NULL}
 	};
-
 	int i, found = 0;
 	char *store;
 
 	store = strings[0];
-
 	if (store[0] == '#')
 		return;
-
 	found = 0;
 	for (i = 0; opcode_functions[i].opcode; i++)
 	{
@@ -42,7 +39,6 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 			break;
 		}
 	}
-
 	if (!found)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, strings[0]);
@@ -50,7 +46,6 @@ void execute_instructions(int line, FILE *file, char *buffer, char **strings)
 		free_tokens(strings);
 		free(buffer);
 		fclose(file);
-/*		buffer = NULL; */
 		exit(EXIT_FAILURE);
 	}
 }
@@ -87,6 +82,7 @@ int execute(char **strings)
 		if (strcmp(strings[0], functions[i].op) == 0)
 		{
 			found = 1;
+
 			functions[i].func();
 			free_tokens(strings);
 			break;

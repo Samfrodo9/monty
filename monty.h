@@ -69,8 +69,8 @@ typedef struct instruction_s
 
 /**
  * struct code - opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
+ * @op: the opcode
+ * @func: function to handle the opcode
  *
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFI

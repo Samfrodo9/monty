@@ -1,4 +1,11 @@
 #include "monty.h"
+/**
+ * main - The main function
+ * @ac: argument count
+ * @av: argument vector
+ *
+ * Return - Returns 0 on success
+ */
 
 stack_t *head = NULL;
 
@@ -18,15 +25,10 @@ int main(int ac, char **av)
 			error(av[1]);
 		while ((count = getline(&buffer, &size, file)) != -1)
 		{
-			/* Trim newline character at the end of the line */
 			if (count > 0 && buffer[count - 1] == '\n')
-			{
 				buffer[count - 1] = '\0';
-			}
-
 			if (strcmp(buffer, "") == 0)
 			{
-				/* Blank line, skip to next iteration */
 				free(buffer);
 				buffer = NULL;
 				line++;
@@ -45,15 +47,11 @@ int main(int ac, char **av)
 			free(buffer);
 			buffer = NULL;
 		}
-
 /*		cleanup(file, buffer, strings); */
 		fclose(file);
 		free(buffer);
 		free_head(head);
-
-		return (0);
 	}
-
 	else
 		usage();
 	return (0);

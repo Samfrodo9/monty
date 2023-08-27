@@ -1,36 +1,47 @@
 #include "monty.h"
 
-/**
- * _strtok - A function to split strings
- * @buffer: token to split
- *
- * Return: An array of tokenized strings
- */
-/*
-char **_strtok(char *buffer)
+char **_strtok(int line, FILE *file, char *buffer)
 {
 	char *delim = " \n\t";
 	char **strings = NULL;
 	char *temp = NULL, *copy = NULL;
-	int i = 0, j = 0, num_tokens = 0;
+	int i = 0, j = 0, num_tokens = 0, test = 0;
 
+	test = line;
+	test++;
 	if (!buffer)
-		return (NULL);
+		return NULL;
+
 	copy = strdup(buffer);
 	if (!copy)
+	{
+		fclose(file);
+		free(buffer);
+		free_head(head);
 		malloc_error();
+	}
+
 	temp = strtok(copy, delim);
-	while (temp != NULL)
+	while (temp != NULL && num_tokens < 3)
 	{
 		num_tokens++;
 		temp = strtok(NULL, delim);
 	}
-	free(copy);
+
 	strings = malloc(sizeof(char *) * (num_tokens + 1));
 	if (!strings)
+	{
+		free(strings);
+		free(copy);
+		fclose(file);
+		free(buffer);
+		free_head(head);
 		malloc_error();
+    }
+
 	temp = strtok(buffer, delim);
-	while (temp != NULL)
+	i = 0;
+	while (temp != NULL && i < num_tokens)
 	{
 		strings[i] = strdup(temp);
 		if (!strings[i])
@@ -38,61 +49,16 @@ char **_strtok(char *buffer)
 			for (j = 0; j < i; j++)
 				free(strings[j]);
 			free(strings);
-			exit(EXIT_FAILURE);
+			free(copy);
+			fclose(file);
+			free(buffer);
+			free_head(head);
+			malloc_error();
 		}
 		i++;
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
+	free(copy);  /* Free the copy of the buffer */
 	return (strings);
-}
-*/
-
-/**
- * free_tokens - Function to free the memory allocated by _strtok.
- * @tokens: tokens to free.
- */
-
-void free_tokens(char **tokens)
-{
-	unsigned int i;
-
-	if (!tokens)
-		return;
-	else
-	{
-		for (i = 0; tokens[i]; i++)
-			free(tokens[i]);
-		free(tokens);
-	}
-/*	tokens = NULL; */
-}
-
-/**
- * print_token - A function to print an array of strings
- * @token: strings to print
- */
-
-void print_token(char **token)
-{
-	if (token)
-	{
-		int i = 0;
-
-		while (token[i] != NULL)
-		{
-			printf("token[%d] = %s\n", i, token[i]);
-			i++;
-		}
-	}
-}
-
-/**
- * malloc_error - A function to print malloc error
- *
- */
-void malloc_error(void)
-{
-	fprintf(stderr, "Error: malloc failed\n");
-	exit(EXIT_FAILURE);
 }
