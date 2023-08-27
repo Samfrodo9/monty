@@ -69,6 +69,7 @@ int execute(char **strings)
 		{"pall", pall},
 		{"nop", nop},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 

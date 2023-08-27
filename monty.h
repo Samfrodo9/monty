@@ -18,6 +18,7 @@ char **_strtok(int line, FILE *file, char *buffer);
 
 
 void pall(void);
+void rotl(void);
 int push(int line, FILE *file, char *buffer, char **strings);
 int pint(int line, FILE *file, char *buffer, char **strings);
 int pop(int line, FILE *file, char *buffer, char **strings);
