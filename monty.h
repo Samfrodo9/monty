@@ -32,6 +32,7 @@ int sub(int line, FILE *file, char *buffer, char **strings);
 int mod(int line, FILE *file, char *buffer, char **strings);
 int execute(char **strings);
 int mul(int line, FILE *file, char *buffer, char **strings);
+void pstr(void);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

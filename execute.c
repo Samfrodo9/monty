@@ -68,6 +68,7 @@ int execute(char **strings)
 	code functions[] = {
 		{"pall", pall},
 		{"nop", nop},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

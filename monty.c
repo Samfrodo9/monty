@@ -46,7 +46,11 @@ int main(int ac, char **av)
 			buffer = NULL;
 		}
 
-		cleanup(file, buffer, strings);
+/*		cleanup(file, buffer, strings); */
+		fclose(file);
+		free(buffer);
+		free_head(head);
+
 		return (0);
 	}
 
