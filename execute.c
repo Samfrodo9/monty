@@ -87,7 +87,7 @@ int execute(char **strings)
 		{
 			found = 1;
 			functions[i].func();
-/*			free_tokens(strings); */
+			free_tokens(strings);
 			break;
 		}
 	}
